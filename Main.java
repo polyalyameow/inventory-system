@@ -8,6 +8,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello Stranger! If you want to start your journey into the world of danger, press any key");
 
+        // @TODO:
        // add while true, game continues
        // press esc -- exit loop
 

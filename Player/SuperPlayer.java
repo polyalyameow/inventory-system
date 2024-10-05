@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class SuperPlayer extends Player{
 
+    static int money = 500;
+
     public SuperPlayer(String name) {
         super(name);
     }
@@ -15,5 +17,12 @@ public class SuperPlayer extends Player{
         String realName = scanner.nextLine();
 
         System.out.println("HELLO, SUPERPLAYER " + realName.toUpperCase() + "!");
+        System.out.println();
+        System.out.println("YOU HAVE " + money + " PIECES OF GOLD");
+        System.out.println();
+        System.out.println("LET THE GAME BEGIN!");
     }
+
+
+    
 }
