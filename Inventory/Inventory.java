@@ -1,6 +1,7 @@
 package Inventory;
 
 import java.util.ArrayList;
+import java.util.List;
 
 // personal inventory for each player
 // consists of list of items 
@@ -12,10 +13,15 @@ public class Inventory {
     // TO CHECK! we dont need a constructor here - right?
     // QUESTION? how to create different default inventories for OP and SP 
 
-    private ArrayList<Item>;
+    private List<Item> items;
 
     public Inventory() {
+        this.items = new ArrayList<>();
+    }
 
+    // add default items when player gets created
+    public void addItem(Item item) {
+        items.add(item);
     }
 
     // Show all items in inventory
@@ -23,8 +29,11 @@ public class Inventory {
     // add "Back"-option to go back to meny
 
     public void displayInventory(){
-
+        for(Item item : items) {
+            System.out.println(item);
+        }
     }
+
 
 
     // Player can browse items in player's price range
@@ -59,7 +68,7 @@ public class Inventory {
 
     // Advanced method for superPlayer -- create customisable item
     public void customisableItemConstructor(){
-        
+
     }
 
 }

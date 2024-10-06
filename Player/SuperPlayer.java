@@ -1,12 +1,19 @@
 package Player;
 import java.util.Scanner;
 
+import Inventory.Inventory;
+
 public class SuperPlayer extends Player{
 
+    protected Inventory inventory;
     static int money = 500;
+    // static int health = 100;
 
     public SuperPlayer(String name) {
         super(name);
+        this.inventory = new Inventory();
+        addDefaultItems();
+        setHealth(100);
     }
     
     public static void greetingsSuper() {
@@ -23,6 +30,17 @@ public class SuperPlayer extends Player{
         System.out.println("LET THE GAME BEGIN!");
     }
 
+    protected void addDefaultItems() {
+        // add different classes to items-array
+        // inventory.addItem(new Item());
+    }
 
+    // public static void setHealth(int newHealth) {
+    //     health = newHealth;
+    // }
+
+    // public static int getHealth() {
+    //     return health;
+    // }
     
 }
