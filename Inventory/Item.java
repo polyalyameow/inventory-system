@@ -34,4 +34,9 @@ public abstract class Item {
     public void setGoldValue(int goldValue) {
         this.goldValue = goldValue;
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + this.name + ". Weight: " + this.weight + " gr. Gold: " + this.goldValue + " pieces.";
+    }
 }

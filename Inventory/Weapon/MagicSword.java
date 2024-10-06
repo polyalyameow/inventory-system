@@ -10,8 +10,8 @@ public class MagicSword extends Weapon implements Equippable, Usable {
     private int swingCount;
     private boolean isEquipped = false;
 
-    public MagicSword(String name, int weight, int goldValue, int damage, int durability) {
-        super(name, weight, goldValue, damage, durability);
+    public MagicSword(String name, int weight, int goldValue, int damage) {
+        super(name, weight, goldValue, damage);
         this.swingCount = 0;
     }
 

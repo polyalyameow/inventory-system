@@ -1,32 +1,40 @@
 import java.util.Scanner;
 
-import Inventory.Armour.OgreArmour;
-import Inventory.Consumable.HealthPotion;
-import Inventory.Consumable.MagicCake;
-import Inventory.Weapon.MagicSword;
-import Player.OrdinaryPlayer;
 import Player.Player;
-import Player.SuperPlayer;
+
+
+// -----------------------------------------------
+// IMPORT FOR TESTS
+
+// import Inventory.Armour.OgreArmour;
+// import Inventory.Consumable.HealthPotion;
+// import Inventory.Consumable.MagicCake;
+// import Inventory.Weapon.MagicSword;
+// import Player.OrdinaryPlayer;
+// import Player.Player;
+// import Player.SuperPlayer;
 
 public class Main {
 
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Hello Stranger! If you want to start your journey into the world of danger, press any key");
+        System.out.println("Hello Stranger!");
 
-        // System.out.println("PLEASE ENTER YOUR NAME");
-        // String name = scanner.nextLine();
-        // Player newPlayer = new Player(name);
+        System.out.println("PLEASE ENTER YOUR NAME");
+        String name = scanner.nextLine();
+        Player newPlayer = Player.createPlayer(name);
+
+        newPlayer.startGame();
 
 
         // ---- TEST CASES ---- //
 
-        Player player = new OrdinaryPlayer("Polly"); 
+        // Player player = new OrdinaryPlayer("Polly"); 
         // Player player = new SuperPlayer("MOTHERLODE");
-        System.out.println("Health: " + player.getHealth());
-        System.out.println("Mana: " + player.getMana());
-        System.out.println("Strength: " + player.getStrength());
-        System.out.println("Money: " + player.getMoney());
+        // System.out.println("Health: " + player.getHealth());
+        // System.out.println("Mana: " + player.getMana());
+        // System.out.println("Strength: " + player.getStrength());
+        // System.out.println("Money: " + player.getMoney());
 
         // -------------------------------------------------------------------------
         
@@ -79,27 +87,28 @@ public class Main {
         // -------------------------------------------------------------------------
         // --- TEST CASES FOR MAGIC SWORD ---- //
 
-        MagicSword magicSword = new MagicSword("Magic Sword", 5, 50, 20, 100);
+        // MagicSword magicSword = new MagicSword("Magic Sword", 5, 50, 100);
         
         // Equip the MagicSword
-        magicSword.equip(player);
+        // magicSword.equip(player);
         
-        System.out.println("Mana after equipping Magic Sword: " + player.getMana());
+        // System.out.println("Mana after equipping Magic Sword: " + player.getMana());
 
-        System.out.println("Performing attacks...");
-        magicSword.attack(player);  
-        magicSword.attack(player);
-        magicSword.attack(player);  // should cast fireball
+        // System.out.println("Performing attacks...");
+        // magicSword.attack(player);  
+        // magicSword.attack(player);
+        // magicSword.attack(player);  // should cast fireball
 
         // Mana after casting fireball
-        System.out.println("Mana after casting fireball: " + player.getMana());
+        // System.out.println("Mana after casting fireball: " + player.getMana());
 
         // Unequip the MagicSword
-        magicSword.unEquip(player);
+        // magicSword.unEquip(player);
         
         // Display mana after unequipping
-        System.out.println("Mana after unequipping Magic Sword: " + player.getMana());
+        // System.out.println("Mana after unequipping Magic Sword: " + player.getMana());
         
+        // -------------------------------------------------------------------------
 
     }
 }

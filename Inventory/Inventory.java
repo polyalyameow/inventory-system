@@ -29,6 +29,9 @@ public class Inventory {
     // add "Back"-option to go back to meny
 
     public void displayInventory(){
+        System.out.println();
+        System.out.println("HERE'S YOUR INVENTORY");
+        System.out.println();
         for(Item item : items) {
             System.out.println(item);
         }
