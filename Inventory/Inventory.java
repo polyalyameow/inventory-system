@@ -1,7 +1,9 @@
 package Inventory;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Scanner;
 
 // personal inventory for each player
 // consists of list of items 
@@ -38,7 +40,43 @@ public class Inventory {
     }
 
     public void shop(){
-        System.out.println("Welcome to the shop!");
+
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println();
+            System.out.println("WELCOME TO THE SHOP!");
+            System.out.println("PLEASE CHOOSE IF YOU WANT TO BUY OR SELL");
+            System.out.println();
+            System.out.println("1. BUY");
+            System.out.println("2. SELL");
+            System.out.println("3. GO BACK TO MENU");
+
+            try {
+                choice = scanner.nextInt();
+                scanner.nextLine();
+
+                switch (choice) {
+                    case 1:
+                        buyItem();
+                        break;
+                    case 2:
+                        sellItem();
+                        break;
+                    case 3:
+                        return;
+                
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.nextLine();
+                choice = 0;
+            } 
+        } while (choice != 3);
+        scanner.close();
     }
 
     // Player can browse items in player's price range
@@ -53,7 +91,7 @@ public class Inventory {
     // reduce amount of money
 
     public void buyItem() {
-
+        System.out.println("Buying...");
     }
 
     // Player can sell item that player doesnt need
@@ -67,7 +105,7 @@ public class Inventory {
     // no --- go back
 
     public void sellItem() {
-
+        System.out.println("Selling...");
     }
 
 
