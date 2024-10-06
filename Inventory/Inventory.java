@@ -37,7 +37,9 @@ public class Inventory {
         }
     }
 
-
+    public void shop(){
+        System.out.println("Welcome to the shop!");
+    }
 
     // Player can browse items in player's price range
     // 
@@ -71,7 +73,7 @@ public class Inventory {
 
     // Advanced method for superPlayer -- create customisable item
     public void customisableItemConstructor(){
-
+        System.out.println("Workshop will be here...");
     }
 
 }

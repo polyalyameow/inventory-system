@@ -1,4 +1,5 @@
 package Player;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Inventory.Inventory;
@@ -51,7 +52,46 @@ public class SuperPlayer extends Player{
     }
 
     public void superPlayerGame() {
-        inventory.displayInventory();
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println();
+            System.out.println("CHOOSE WISELY:");
+            System.out.println("1. INVENTORY");
+            System.out.println("2. SHOP");
+            System.out.println("3. WORKSHOP");
+            System.out.println("4. QUIT");
+            System.out.println();
+            System.out.print("Enter your choice: ");
+            try {
+                choice = scanner.nextInt();
+                scanner.nextLine();
+
+                switch (choice) {
+                    case 1:
+                        inventory.displayInventory();
+                        break;
+                    case 2:
+                        inventory.shop();
+                        break;
+                    case 3:
+                        inventory.customisableItemConstructor();
+                        break;
+                    case 4:
+                        System.out.println("Goodbye!");
+                        break;
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.nextLine();
+                choice = 0;
+            }
+        } while (choice != 4);
+
+        scanner.close();
     }
 
     

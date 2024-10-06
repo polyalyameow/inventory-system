@@ -1,5 +1,8 @@
 package Player;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import Inventory.Inventory;
 import Inventory.Armour.OgreArmour;
 import Inventory.Consumable.HealthPotion;
@@ -34,6 +37,41 @@ public class OrdinaryPlayer extends Player {
     }
 
     public void ordinaryPlayerGame() {
-        inventory.displayInventory();
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println();
+            System.out.println("CHOOSE WISELY:");
+            System.out.println("1. INVENTORY");
+            System.out.println("2. SHOP");
+            System.out.println("3. QUIT");
+            System.out.println();
+            System.out.print("Enter your choice: ");
+            try {
+                choice = scanner.nextInt();
+                scanner.nextLine();
+
+                switch (choice) {
+                    case 1:
+                        inventory.displayInventory();
+                        break;
+                    case 2:
+                        inventory.shop();
+                        break;
+                    case 3:
+                        System.out.println("Goodbye!");
+                        break;
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.nextLine();
+                choice = 0;
+            }
+        } while (choice != 3);
+
+        scanner.close();
     }
 }
