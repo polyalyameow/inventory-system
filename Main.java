@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 import Inventory.Armour.OgreArmour;
+import Inventory.Consumable.HealthPotion;
 import Player.OrdinaryPlayer;
 import Player.Player;
 import Player.SuperPlayer;
@@ -28,29 +29,45 @@ public class Main {
         // -------------------------------------------------------------------------
         
         // --- TEST CASES FOR OGREARMOUR ---- //
-        OgreArmour ogreArmour = new OgreArmour("Ogre Armour", 10, 150, "Heavy");
+
+        // OgreArmour ogreArmour = new OgreArmour("Ogre Armour", 10, 150, "Heavy");
 
         // Test the equip method
         // Expected: increase by 20
-        System.out.println("\n--- Testing Equip ---");
-        System.out.println("Current strength: " + player.getStrength());
-        ogreArmour.equip(player);
-        System.out.println("Player's strength after equipping: " + player.getStrength());
+
+        // System.out.println("\n--- Testing Equip ---");
+        // System.out.println("Current strength: " + player.getStrength());
+        // ogreArmour.equip(player);
+        // System.out.println("Player's strength after equipping: " + player.getStrength());
 
         // Test the enchant method
         //Expected: increase by 20
-        System.out.println("\n--- Testing Enchant ---");
-        System.out.println("Current health: " + player.getHealth());
-        ogreArmour.enchant(player);
-        System.out.println("Player's health after enchanting: " + player.getHealth());
+
+        // System.out.println("\n--- Testing Enchant ---");
+        // System.out.println("Current health: " + player.getHealth());
+        // ogreArmour.enchant(player);
+        // System.out.println("Player's health after enchanting: " + player.getHealth());
 
         // Test the unEquip method
         //Expected: decrease by 20
-        System.out.println("\n--- Testing UnEquip ---");
-        System.out.println("Current strength: " + player.getStrength());
-        ogreArmour.unEquip(player);
-        System.out.println("Player's strength after unequipping: " + player.getStrength());  // Expected: decreased by 20
+
+        // System.out.println("\n--- Testing UnEquip ---");
+        // System.out.println("Current strength: " + player.getStrength());
+        // ogreArmour.unEquip(player);
+        // System.out.println("Player's strength after unequipping: " + player.getStrength());
+       
+       
         // -------------------------------------------------------------------------
+        // --- TEST CASES FOR HEALTH POTION ---- //
+        HealthPotion potion = new HealthPotion("Small Health Potion", 1, 10, "Healing", 5, 100);
+
+        // Expected increase by 20
+        System.out.println("Player's health before using potion: " + player.getHealth());
+        System.out.println("\n--- Using Health Potion ---");
+        potion.use(player); 
+
+        // -------------------------------------------------------------------------
+        
 
     }
 }
