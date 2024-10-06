@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 import Inventory.Armour.OgreArmour;
 import Inventory.Consumable.HealthPotion;
+import Inventory.Consumable.MagicCake;
 import Player.OrdinaryPlayer;
 import Player.Player;
 import Player.SuperPlayer;
@@ -59,15 +60,21 @@ public class Main {
        
         // -------------------------------------------------------------------------
         // --- TEST CASES FOR HEALTH POTION ---- //
-        HealthPotion potion = new HealthPotion("Small Health Potion", 1, 10, "Healing", 5, 100);
+
+        // HealthPotion potion = new HealthPotion("Small Health Potion", 1, 10, "Healing", 5, 100);
 
         // Expected increase by 20
-        System.out.println("Player's health before using potion: " + player.getHealth());
-        System.out.println("\n--- Using Health Potion ---");
-        potion.use(player); 
+
+        // System.out.println("Player's health before using potion: " + player.getHealth());
+        // System.out.println("\n--- Using Health Potion ---");
+        // potion.use(player); 
 
         // -------------------------------------------------------------------------
+        // --- TEST CASES FOR MAGIC CAKE ---- //
         
+        MagicCake magicCake = new MagicCake("Magic Cake", 1, 10, "Restores health and mana", 5, 20, 15);
+        magicCake.use(player);
+    
 
     }
 }

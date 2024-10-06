@@ -21,6 +21,23 @@ public class MagicCake extends Consumable {
         int currentMana = player.getMana();
         player.setHealth(currentHealth + restoreHealthAmount);
         player.setMana(currentMana + restoreManaAmount);
+        System.out.println("Health after magic cake is " + player.getHealth());
+        System.out.println("Mana after magic cake is " + player.getMana());
+        removeBoostAfterDuration(player);
+    }
+
+    private void removeBoostAfterDuration(Player player) {
+        System.out.println("Boost will be removed after " + getDuration() + " seconds...");
+        
+        try {
+            Thread.sleep(getDuration() * 1000); 
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        player.setHealth(player.getHealth() - restoreHealthAmount);
+        player.setMana(player.getMana() - restoreManaAmount);
+        System.out.println("Boost removed. Player's health is now: " + player.getHealth());
+        System.out.println("Mana is " + player.getMana());
     }
     
 }
