@@ -12,7 +12,6 @@ public class OrdinaryPlayer extends Player {
         super(name);
         this.inventory = new Inventory();
         addDefaultItems();
-        setHealth(50);
     }
 
     public static void greetingsOrdinary(String name) {

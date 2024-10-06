@@ -1,6 +1,8 @@
 package Interfaces;
 
+import Player.Player;
+
 public interface Equippable {
-    void equip();
-    void unEquip();
+    void equip(Player player);
+    void unEquip(Player player);
 }

@@ -1,43 +1,41 @@
 package Inventory.Armour;
 
 import Interfaces.Equippable;
+import Player.Player;
 
 public class OgreArmour extends Armour implements Equippable {
 
-    protected int stamina;
-    protected int strength;
     protected boolean isEquipped = false;
 
-    public OgreArmour(String name, int weight, int goldValue, int defense, String armourType, int stamina, int strength) {
-        super(name, weight, goldValue, defense, armourType);
-        this.stamina = stamina;
-        this.strength = strength;
+    public OgreArmour(String name, int weight, int goldValue, String armourType) {
+        super(name, weight, goldValue, armourType);
     }
 
     @Override
-    public void enchant() {
+    public void enchant(Player player) {
         System.out.println("Your OgreArmour is getting enchanted");
-        this.stamina += 10;
-        this.strength += 10;
+        player.setHealth(player.getHealth() + 20);
+        System.out.println("Health boost. Your health is: " + player.getHealth());
+       
     }
 
     @Override
-    public void equip() {
+    public void equip(Player player) {
         if (!isEquipped) {
             System.out.println("Equipping the OgreArmour!");
-            this.setDefense(this.getDefense() + 20);
+            player.setStrength(player.getStrength() + 20);
             isEquipped = true;
-            System.out.println("Current defense: " + defense);
+            System.out.println("Current strength: " + player.getStrength());
         } else {
             System.out.println("The OgreArmour is already equipped");
         }
     }
 
     @Override
-    public void unEquip() {
+    public void unEquip(Player player) {
         if (isEquipped) {
             System.out.println("Unequipping...");
-            this.setDefense(this.getDefense() - 20);
+            player.setStrength(player.getStrength() - 20);
             isEquipped = false;
         } else {
             System.out.println("You didn't have any equipment to begin with");

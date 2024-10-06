@@ -1,8 +1,6 @@
 package Inventory.Consumable;
 
-import Player.OrdinaryPlayer;
 import Player.Player;
-import Player.SuperPlayer;
 
 public class HealthPotion extends Consumable {
 
@@ -14,11 +12,8 @@ public class HealthPotion extends Consumable {
     }
 
     @Override
-    public void use() {
-        System.out.println("Using a health potion...");
-    }
-
     public void use(Player player) {
+        System.out.println("Using a health potion...");
         int currentHealth = player.getHealth();
         player.setHealth(currentHealth + restoreAmount);
     }

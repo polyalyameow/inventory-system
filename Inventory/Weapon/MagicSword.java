@@ -2,67 +2,57 @@ package Inventory.Weapon;
 
 import Interfaces.Equippable;
 import Interfaces.Usable;
+import Player.Player;
+
 
 public class MagicSword extends Weapon implements Equippable, Usable {
 
-    private int mana;
     private int swingCount;
     private boolean isEquipped = false;
 
-    public MagicSword(String name, int weight, int goldValue, int damage, int durability, int mana) {
+    public MagicSword(String name, int weight, int goldValue, int damage, int durability) {
         super(name, weight, goldValue, damage, durability);
-        this.mana = mana;
         this.swingCount = 0;
     }
 
-    private void castFireball() {
-        if (mana >= 10) { 
+    private void castFireball(Player player) {
+        if (player.getMana() >= 10) { 
             System.out.println("Shooting fireball!");
-            mana -= 10;
+            player.setMana(player.getMana() - 10);
         } else {
             System.out.println("Not enough mana to shoot fireball.");
         }
     }
 
-    @Override
-    public void attack() {
+    public void attack(Player player) {
         swingCount++;
         if (swingCount % 3 == 0) {
-            castFireball();
+            castFireball(player);
         }
     }
 
-    public int getMana() {
-        return mana;
-    }
-
-    public void setMana(int mana) {
-        this.mana = mana;
+    @Override
+    public void use(Player player) {
+        attack(player);
     }
 
     @Override
-    public void use() {
-        System.out.println("You use the Magic Sword to attack!");
-        attack();
-    }
-
-    @Override
-    public void equip() {
+    public void equip(Player player) {
         if (!isEquipped) {
             System.out.println("Equipping the Magic Sword!");
-            isEquipped = true; // Set the equipped status to true
-            this.setMana(this.getMana() + 5);
-            System.out.println("Mana increased! Current mana: " + mana);
+            isEquipped = true; 
+            player.setMana(player.getMana() + 5);
+            System.out.println("Mana increased! Current mana: " + player.getMana());
         } else {
             System.out.println("The Magic Sword is already equipped");
         }
     }
 
     @Override
-    public void unEquip() {
+    public void unEquip(Player player) {
         if (isEquipped) {
             System.out.println("Unequipping...");
-            this.setMana(this.getMana() - 20);
+            player.setMana(player.getMana() - 20);
             isEquipped = false;
         } else {
             System.out.println("You didn't have any equipment to begin with.");

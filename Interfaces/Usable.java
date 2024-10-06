@@ -1,5 +1,7 @@
 package Interfaces;
 
+import Player.Player;
+
 public interface Usable {
-    void use();
+    void use(Player player);
 }

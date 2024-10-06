@@ -1,6 +1,7 @@
 package Inventory.Weapon;
 
 import Inventory.Item;
+import Player.Player;
 
 public abstract class Weapon extends Item {
 
@@ -13,7 +14,7 @@ public abstract class Weapon extends Item {
         this.durability = durability;
     }
 
-    public abstract void attack();
+    public abstract void attack(Player player);
 
     public int getDamage() {
         return damage;
