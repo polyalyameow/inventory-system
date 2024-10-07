@@ -9,6 +9,7 @@ import Inventory.Armour.OgreArmour;
 import Inventory.Consumable.HealthPotion;
 import Inventory.Consumable.MagicCake;
 import Inventory.Customizable.CustomizableArmour;
+import Inventory.Customizable.CustomizableConsumable;
 import Inventory.Customizable.CustomizableWeapon;
 import Inventory.Shop.Shop;
 import Inventory.Weapon.MagicSword;
@@ -198,7 +199,7 @@ public class Inventory {
         System.out.println();
         System.out.println("1. Weapon");
         System.out.println("2. Armor");
-        System.out.println("3. Consumable");
+        System.out.println("3. Potion");
         System.out.println("0. Back to menu");
         System.out.println();
 
@@ -239,6 +240,33 @@ public class Inventory {
             System.out.println("Custom armour created: " + customArmour);
         } else if (choice == 3) {
             // Consumable
+            System.out.println("Enter the effect of your potion:");
+            String effect = scanner.nextLine();
+
+            System.out.println("Enter the duration of your potion:");
+            int duration = scanner.nextInt();
+
+            CustomizableConsumable customPotion = new CustomizableConsumable(name, weight, goldValue, effect, duration);
+            System.out.println();
+            System.out.println("To make potion more customizable, you need to fill it with three extra element of your preference");
+
+            System.out.println("Enter the first element:");
+            String firstElement = scanner.nextLine();
+            customPotion.setFirstElement(firstElement);
+
+            System.out.println("Enter the second element:");
+            String secondElement = scanner.nextLine();
+            customPotion.setSecondElement(secondElement);
+
+            System.out.println("Enter the third element:");
+            String thirdElement = scanner.nextLine();
+            customPotion.setThirdElement(thirdElement);
+
+            addItem(customPotion);
+            System.out.println("Custom potion created: " + customPotion);
+
+        } else {
+            System.out.println("Invalid choice. Returning to menu...");
         }
 
     }
