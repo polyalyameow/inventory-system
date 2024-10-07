@@ -80,8 +80,6 @@ public class OgreArmour extends Armour implements Equippable {
             default:
                 System.out.println("Invalid choice. Returning to inventory...");
         }
-
-
     }
     
 }

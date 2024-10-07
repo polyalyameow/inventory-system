@@ -57,7 +57,7 @@ public class OrdinaryPlayer extends Player {
                         inventory.displayInventory(player);
                         break;
                     case 2:
-                        inventory.shop();
+                        inventory.shop(player);
                         break;
                     case 3:
                         System.out.println("Goodbye!");

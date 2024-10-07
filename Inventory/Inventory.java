@@ -40,6 +40,7 @@ public class Inventory {
         System.out.println();
         System.out.println("HERE'S YOUR INVENTORY");
         System.out.println();
+        System.out.println("0. Back to menu");
         int i = 1;
         for(Item item : items) {
             System.out.println(i + ". " + item);
@@ -48,11 +49,16 @@ public class Inventory {
 
         System.out.println();
         System.out.println("CHOOSE WISELY AND ENTER AN ITEM NUMBER");
+        System.out.println();
 
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
 
-        if (choice > 0 && choice <= getItems().size()) {
+        if (choice == 0) {
+            System.out.println("Returning to the main menu...");
+            return;  
+    
+        } else if (choice > 0 && choice <= getItems().size()) {
             Item selectedItem = getItems().get(choice - 1);
             if (selectedItem instanceof MagicSword) {
                 ((MagicSword) selectedItem).displayMagicSwordMenu(player);
@@ -70,7 +76,7 @@ public class Inventory {
         }
     }
 
-    public void shop(){
+    public void shop(Player player){
 
         Scanner scanner = new Scanner(System.in);
         int choice;
@@ -93,7 +99,7 @@ public class Inventory {
                         buyItem();
                         break;
                     case 2:
-                        sellItem();
+                        sellItem(player);
                         break;
                     case 3:
                         return;
@@ -135,8 +141,42 @@ public class Inventory {
     // yes -- remove from array, money + Item.gold
     // no --- go back
 
-    public void sellItem() {
-        System.out.println("Selling...");
+    public void sellItem(Player player) {
+        System.out.println();
+        System.out.println("CHOOSE ITEMS TO SELL");
+        int i = 1;
+        for(Item item : items) {
+            System.out.println(i + ". " + item);
+            i ++;
+        }
+
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+
+        if (choice > 0 && choice <= getItems().size()) {
+            Item itemToSell = getItems().get(choice - 1);
+
+            System.out.println("You have chosen to sell: " + itemToSell.getName());
+            System.out.println("Are you sure? (yes/no)");
+            System.out.println();
+            String confirmation = scanner.next();
+
+            if (confirmation.equalsIgnoreCase("yes")){
+                player.setMoney(player.getMoney() + itemToSell.getGoldValue());
+                items.remove(itemToSell);
+                
+                System.out.println("Item " + itemToSell.getName() + " has been sold for " + itemToSell.getGoldValue() + " gold coins.");
+                System.out.println("Now you have " + player.getMoney() + " gold coins");
+                System.out.println();
+                System.out.println("Your updated inventory: ");
+                displayInventory(player);
+
+            } else {
+                System.out.println("Sale canceled. Returning to inventory...");
+            }
+        } else {
+            System.out.println("Invalid choice. Exiting inventory ...");
+        }
     }
 
 
