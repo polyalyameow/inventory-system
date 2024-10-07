@@ -22,8 +22,6 @@ import Player.Player;
 
 
 public class Inventory {
-    // TO CHECK! we dont need a constructor here - right?
-    // QUESTION? how to create different default inventories for OP and SP 
 
     private List<Item> items;
 
@@ -74,7 +72,14 @@ public class Inventory {
                 ((HealthPotion) selectedItem).displayHealthPotionMenu(player);
             } else if (selectedItem instanceof OgreArmour) {
                 ((OgreArmour) selectedItem).displayOgreArmourMenu(player);
-            } else {
+            } else if (selectedItem instanceof CustomizableArmour) {
+                ((CustomizableArmour) selectedItem).displayCustomizableArmourMenu(player);
+            } else if (selectedItem instanceof CustomizableWeapon){
+                ((CustomizableWeapon) selectedItem).displayCustomizableWeaponMenu(player);
+            } else if (selectedItem instanceof CustomizableConsumable) {
+                ((CustomizableConsumable) selectedItem).displayCustomizablePotionMenu(player);
+            }
+            else {
                 System.out.println("Selected item is not interactable.");
             }
         } else {
@@ -107,7 +112,7 @@ public class Inventory {
                     case 2:
                         sellItem(player);
                         break;
-                    case 3:
+                    case 0:
                         return;
                 
                     default:
@@ -118,38 +123,10 @@ public class Inventory {
                 scanner.nextLine();
                 choice = 0;
             } 
-        } while (choice != 3);
+        } while (choice != 0);
         scanner.close();
     }
 
-    // Player can browse items in player's price range
-    // 
-
-    // ideas: maybe create a shop and call the shop here - one for OP, another for SP
-    // ideas: maybe enum?
-
-    // ACTIONS:
-    // choose number? Are you sure that you want to buy this one?
-    // add item to players inventory to default items
-    // reduce amount of money
-
-    // public static void buyItem(Player player) {
-    //     System.out.println();
-    //     System.out.println("CHOOSE ITEMS TO BUY");
-
-    //     Scanner scanner = new Scanner(System.in);
-    //     int choice = scanner.nextInt();
-    // }
-
-    // Player can sell item that player doesnt need
-    // Player will get money 
-
-    // ACTIONS:
-    // display all items -- enums??
-    // scanner for choice
-    // are you sure? 
-    // yes -- remove from array, money + Item.gold
-    // no --- go back
 
     public void sellItem(Player player) {
         System.out.println();
@@ -214,17 +191,19 @@ public class Inventory {
         System.out.println("Enter the name of the item:");
         String name = scanner.nextLine();
 
-        System.out.println("Enter the weight of the item:");
-        int weight = scanner.nextInt();
+        int weight = 10;
 
-        System.out.println("Enter the gold value of the item:");
-        int goldValue = scanner.nextInt();
+        int goldValue = 30;
 
         // Weapon
         if (choice == 1) {
             System.out.println("Enter the damage of the weapon:");
             int damage = scanner.nextInt();
-            CustomizableWeapon customWeapon = new CustomizableWeapon(name, weight, goldValue, damage, name);
+            scanner.nextLine(); 
+            CustomizableWeapon customWeapon = new CustomizableWeapon(name, weight, goldValue, damage);
+            System.out.println("Enter the type of your weapon: ");
+            String weaponType = scanner.nextLine();
+            customWeapon.setElementType(weaponType);
             customWeapon.customize();
             addItem(customWeapon);
             System.out.println("Custom weapon created: " + customWeapon);
@@ -245,6 +224,7 @@ public class Inventory {
 
             System.out.println("Enter the duration of your potion:");
             int duration = scanner.nextInt();
+            scanner.nextLine(); 
 
             CustomizableConsumable customPotion = new CustomizableConsumable(name, weight, goldValue, effect, duration);
             System.out.println();

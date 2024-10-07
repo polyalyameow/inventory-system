@@ -36,17 +36,6 @@ public class Shop {
         buyItem(player);
     }
 
-       // Player can browse items in player's price range
-    // 
-
-    // ideas: maybe create a shop and call the shop here - one for OP, another for SP
-    // ideas: maybe enum?
-
-    // ACTIONS:
-    // choose number? Are you sure that you want to buy this one?
-    // add item to players inventory to default items
-    // reduce amount of money
-
     public static void buyItem(Player player) {
         System.out.println();
         System.out.println("---------------------------");
@@ -55,6 +44,7 @@ public class Shop {
 
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
+        scanner.nextLine();
 
         if (choice == 0) {
             System.out.println("Returning to the main menu...");
@@ -63,19 +53,7 @@ public class Shop {
 
         if (choice > 0 && choice <= SHOP.length) {
             Item itemToBuy = SHOP[choice - 1]; 
-
-            // Item newItem = null;
-            // if (itemToBuy instanceof OgreArmour) {
-            //     newItem = new OgreArmour(itemToBuy.getName(), itemToBuy.getWeight(), itemToBuy.getGoldValue(), ((OgreArmour)itemToBuy).getArmourType());
-            // } else if (itemToBuy instanceof HealthPotion) {
-            //     newItem = new HealthPotion(itemToBuy.getName(), itemToBuy.getWeight(), itemToBuy.getGoldValue(), ((HealthPotion)itemToBuy).getEffect(), ((HealthPotion)itemToBuy).getDuration(), ((HealthPotion)itemToBuy).getRestoreAmount());
-            // } else if (itemToBuy instanceof MagicCake) {
-            //     newItem = new MagicCake(itemToBuy.getName(), itemToBuy.getWeight(), itemToBuy.getGoldValue(), ((MagicCake)itemToBuy).getEffect(), ((MagicCake)itemToBuy).getDuration(), ((MagicCake)itemToBuy).getRestoreHealthAmount(), ((MagicCake)itemToBuy).getRestoreManaAmount());
-            // } else if (itemToBuy instanceof MagicSword) {
-            //     newItem = new MagicSword(itemToBuy.getName(), itemToBuy.getWeight(), itemToBuy.getGoldValue(), ((MagicSword)itemToBuy).getDamage());
-            // }
-
-
+            
             if (player.getInventory().calculateTotalWeight() + itemToBuy.getWeight() <= 80) {
                 if (player.getMoney() >= itemToBuy.getGoldValue()) {
                     player.getInventory().addItem(itemToBuy);

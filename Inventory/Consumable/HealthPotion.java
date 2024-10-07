@@ -59,7 +59,5 @@ public class HealthPotion extends Consumable {
 
     public int getRestoreAmount() {
         return this.restoreAmount;
-    }
-    
-    
+    } 
 }

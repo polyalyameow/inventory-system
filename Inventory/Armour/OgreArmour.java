@@ -59,7 +59,7 @@ public class OgreArmour extends Armour implements Equippable {
         System.out.println();
         System.out.println("1. Enchant Ogre Armour");
         System.out.println("2. Equip Ogre Armour");
-        System.out.println("3. UnEquip Ogre Armour");
+        System.out.println("3. Unequip Ogre Armour");
         System.out.println("0. Back to inventory");
 
         int action = scanner.nextInt();

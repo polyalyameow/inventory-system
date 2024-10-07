@@ -1,6 +1,5 @@
 package Inventory.Customizable;
 
-import java.lang.annotation.ElementType;
 import java.util.Scanner;
 
 import Inventory.Weapon.Weapon;
@@ -10,9 +9,8 @@ public class CustomizableWeapon extends Weapon {
 
     private String elementType;
 
-    public CustomizableWeapon(String name, int weight, int goldValue, int damage, String elementType) {
+    public CustomizableWeapon(String name, int weight, int goldValue, int damage) {
         super(name, weight, goldValue, damage);
-        this.elementType = elementType;
     }
 
     public String getElementType() {
@@ -92,6 +90,29 @@ public class CustomizableWeapon extends Weapon {
             default:
                 System.out.println("No elemental effects applied.");
                 break;
+        }
+    }
+
+    public void displayCustomizableWeaponMenu(Player player) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("CUSTOMIZABLE WEPON HAS BEEN SELECTED!");
+        System.out.println("Choose an action:");
+        System.out.println();
+        System.out.println("1. Attack");
+        System.out.println("0. Back to inventory");
+
+        int action = scanner.nextInt();
+
+        switch (action) {
+            case 1:
+                attack(player);
+                break;
+            case 0:
+                System.out.println("Returning to inventory...");
+                break;
+            default:
+                System.out.println("Invalid choice. Returning to inventory...");
         }
     }
     

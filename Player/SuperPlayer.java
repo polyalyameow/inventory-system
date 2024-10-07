@@ -3,14 +3,12 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Inventory.Inventory;
-import Inventory.Item;
 import Inventory.Armour.OgreArmour;
 import Inventory.Consumable.HealthPotion;
 import Inventory.Weapon.MagicSword;
 
 public class SuperPlayer extends Player{
 
-    protected Inventory inventory;
 
     public SuperPlayer(String name) {
         super(name);

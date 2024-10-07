@@ -27,10 +27,6 @@ public class Main {
 
         newPlayer.startGame();
 
-        Shop shop = new Shop();
-        shop.buyItem(newPlayer);
-
-
         // ---- TEST CASES ---- //
 
         // Player player = new OrdinaryPlayer("Polly"); 

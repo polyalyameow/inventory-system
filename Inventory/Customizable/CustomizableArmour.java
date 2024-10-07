@@ -1,5 +1,7 @@
 package Inventory.Customizable;
 
+import java.util.Scanner;
+
 import Interfaces.Equippable;
 import Inventory.Armour.Armour;
 import Player.Player;
@@ -11,8 +13,6 @@ public class CustomizableArmour extends Armour implements Equippable {
 
     public CustomizableArmour(String name, int weight, int goldValue, String armourType) {
         super(name, weight, goldValue, armourType);
-        this.color = color;
-        
     }
     
     public String getColor() {
@@ -60,6 +60,35 @@ public class CustomizableArmour extends Armour implements Equippable {
         }
     }
 
+        public void displayCustomizableArmourMenu(Player player) {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("THE CUSTOMIZABLE ARMOUR HAS BEEN SELECTED!");
+        System.out.println("Choose an action:");
+        System.out.println();
+        System.out.println("1. Enchant Your Armour");
+        System.out.println("2. Equip Your Armour");
+        System.out.println("3. Unequip Your Armour");
+        System.out.println("0. Back to inventory");
+
+        int action = scanner.nextInt();
+
+        switch (action) {
+            case 1:
+                enchant(player);
+                break;
+            case 2:
+                equip(player);
+                break;
+            case 3:
+                unEquip(player);
+                break;
+            case 0:
+                System.out.println("Returning to inventory...");
+                break;
+            default:
+                System.out.println("Invalid choice. Returning to inventory...");
+        }
+    }
     
 }

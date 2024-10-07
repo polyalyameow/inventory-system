@@ -10,8 +10,6 @@ import Inventory.Weapon.MagicSword;
 
 public class OrdinaryPlayer extends Player {
 
-    protected Inventory inventory;
-
     public OrdinaryPlayer(String name) {
         super(name);
         this.inventory = new Inventory();
