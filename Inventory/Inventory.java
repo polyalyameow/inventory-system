@@ -8,6 +8,8 @@ import java.util.Scanner;
 import Inventory.Armour.OgreArmour;
 import Inventory.Consumable.HealthPotion;
 import Inventory.Consumable.MagicCake;
+import Inventory.Customizable.CustomizableArmour;
+import Inventory.Customizable.CustomizableWeapon;
 import Inventory.Shop.Shop;
 import Inventory.Weapon.MagicSword;
 import Player.Player;
@@ -188,8 +190,57 @@ public class Inventory {
 
 
     // Advanced method for superPlayer -- create customisable item
-    public void customisableItemConstructor(){
-        System.out.println("Workshop will be here...");
+    public void customisableItemConstructor(Player player){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("WELCOME TO THE WORKSHOP");
+        System.out.println("What type of item would you like to create?");
+        System.out.println();
+        System.out.println("1. Weapon");
+        System.out.println("2. Armor");
+        System.out.println("3. Consumable");
+        System.out.println("0. Back to menu");
+        System.out.println();
+
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        if (choice == 0) {
+            System.out.println("Returning to the main menu...");
+            return;
+        }
+
+        System.out.println("Enter the name of the item:");
+        String name = scanner.nextLine();
+
+        System.out.println("Enter the weight of the item:");
+        int weight = scanner.nextInt();
+
+        System.out.println("Enter the gold value of the item:");
+        int goldValue = scanner.nextInt();
+
+        // Weapon
+        if (choice == 1) {
+            System.out.println("Enter the damage of the weapon:");
+            int damage = scanner.nextInt();
+            CustomizableWeapon customWeapon = new CustomizableWeapon(name, weight, goldValue, damage, name);
+            customWeapon.customize();
+            addItem(customWeapon);
+            System.out.println("Custom weapon created: " + customWeapon);
+        } else if ((choice == 2)){
+            // Armour
+            System.out.println("Enter the type of armour:");
+            String armourType = scanner.nextLine();
+            CustomizableArmour customArmour = new CustomizableArmour(name, weight, goldValue, armourType);
+            System.out.println("Enter the color of armour:");
+            String color = scanner.nextLine();
+            customArmour.setColor(color);
+            addItem(customArmour);
+            System.out.println("Custom armour created: " + customArmour);
+        } else if (choice == 3) {
+            // Consumable
+        }
+
     }
 
     public int calculateTotalWeight() {

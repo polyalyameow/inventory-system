@@ -81,7 +81,7 @@ public class SuperPlayer extends Player{
                         inventory.toShop(player);
                         break;
                     case 3:
-                        inventory.customisableItemConstructor();
+                        inventory.customisableItemConstructor(player);
                         break;
                     case 4:
                         System.out.println("Goodbye!");
