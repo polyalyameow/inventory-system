@@ -1,5 +1,7 @@
 package Inventory.Weapon;
 
+import java.util.Scanner;
+
 import Interfaces.Equippable;
 import Interfaces.Usable;
 import Player.Player;
@@ -56,6 +58,38 @@ public class MagicSword extends Weapon implements Equippable, Usable {
             isEquipped = false;
         } else {
             System.out.println("You didn't have any equipment to begin with.");
+        }
+    }
+
+    
+    public void displayMagicSwordMenu(Player player) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("THE MAGIC SWORD HAS BEEN SELECTED!");
+        System.out.println("Choose an action:");
+        System.out.println();
+        System.out.println("1. Use Magic Sword");
+        System.out.println("2. Equip Magic Sword");
+        System.out.println("3. UnEquip Magic Sword");
+        System.out.println("0. Back to inventory");
+
+        int action = scanner.nextInt();
+
+        switch (action) {
+            case 1:
+                use(player);
+                break;
+            case 2:
+                equip(player);
+                break;
+            case 3:
+                unEquip(player);
+                break;
+            case 0:
+                System.out.println("Returning to inventory...");
+                break;
+            default:
+                System.out.println("Invalid choice. Returning to inventory...");
         }
     }
     

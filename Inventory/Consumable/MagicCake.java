@@ -1,5 +1,7 @@
 package Inventory.Consumable;
 
+import java.util.Scanner;
+
 import Player.Player;
 
 public class MagicCake extends Consumable {
@@ -39,5 +41,29 @@ public class MagicCake extends Consumable {
         System.out.println("Boost removed. Player's health is now: " + player.getHealth());
         System.out.println("Mana is " + player.getMana());
     }
+
+    public void displayMagicCakeMenu(Player player) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("THE MAGIC CAKE HAS BEEN SELECTED!");
+        System.out.println("Choose an action:");
+        System.out.println();
+        System.out.println("1. Use Magic Cake");
+        System.out.println("0. Back to inventory");
+
+        int action = scanner.nextInt();
+
+        switch (action) {
+            case 1:
+                use(player);
+                break;
+            case 0:
+                System.out.println("Returning to inventory...");
+                break;
+            default:
+                System.out.println("Invalid choice. Returning to inventory...");
+        }
+    }
+    
     
 }

@@ -1,5 +1,7 @@
 package Inventory.Consumable;
 
+import java.util.Scanner;
+
 import Player.Player;
 
 public class HealthPotion extends Consumable {
@@ -31,5 +33,29 @@ public class HealthPotion extends Consumable {
         player.setHealth(player.getHealth() - restoreAmount);
         System.out.println("Health boost removed. Player's health is now: " + player.getHealth());
     }
+
+    public void displayHealthPotionMenu(Player player) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("THE HEALTH POTION HAS BEEN SELECTED!");
+        System.out.println("Choose an action:");
+        System.out.println();
+        System.out.println("1. Use Health Potion");
+        System.out.println("0. Back to inventory");
+
+        int action = scanner.nextInt();
+
+        switch (action) {
+            case 1:
+                use(player);
+                break;
+            case 0:
+                System.out.println("Returning to inventory...");
+                break;
+            default:
+                System.out.println("Invalid choice. Returning to inventory...");
+        }
+    }
+    
     
 }

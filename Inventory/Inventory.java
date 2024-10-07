@@ -55,11 +55,11 @@ public class Inventory {
         if (choice > 0 && choice <= getItems().size()) {
             Item selectedItem = getItems().get(choice - 1);
             if (selectedItem instanceof MagicSword) {
-                // displayMagicSwordMenu((MagicSword) selectedItem);
+                ((MagicSword) selectedItem).displayMagicSwordMenu(player);
             } else if (selectedItem instanceof MagicCake) {
-                // displayMagicCakeMenu((MagicCake) selectedItem);
+                ((MagicCake) selectedItem).displayMagicCakeMenu(player);
             } else if (selectedItem instanceof HealthPotion) {
-                // displayHealthPotionMenu((HealthPotion) selectedItem);
+                ((HealthPotion) selectedItem).displayHealthPotionMenu(player);
             } else if (selectedItem instanceof OgreArmour) {
                 ((OgreArmour) selectedItem).displayOgreArmourMenu(player);
             } else {
