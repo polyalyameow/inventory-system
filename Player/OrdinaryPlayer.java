@@ -36,6 +36,11 @@ public class OrdinaryPlayer extends Player {
         inventory.addItem(new MagicSword("Meh Magic Sword", 15, 8, 20));
     }
 
+    @Override
+    public Inventory getInventory() {
+        return this.inventory;
+    }
+
     public void ordinaryPlayerGame(Player player) {
         Scanner scanner = new Scanner(System.in);
         int choice;
@@ -57,7 +62,7 @@ public class OrdinaryPlayer extends Player {
                         inventory.displayInventory(player);
                         break;
                     case 2:
-                        inventory.shop(player);
+                        inventory.toShop(player);
                         break;
                     case 3:
                         System.out.println("Goodbye!");

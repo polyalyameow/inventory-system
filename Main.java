@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+import Inventory.Shop.Shop;
 import Player.Player;
 
 
@@ -25,6 +26,9 @@ public class Main {
         Player newPlayer = Player.createPlayer(name);
 
         newPlayer.startGame();
+
+        Shop shop = new Shop();
+        shop.buyItem(newPlayer);
 
 
         // ---- TEST CASES ---- //

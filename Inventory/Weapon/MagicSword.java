@@ -30,12 +30,14 @@ public class MagicSword extends Weapon implements Equippable, Usable {
         swingCount++;
         if (swingCount % 3 == 0) {
             castFireball(player);
+            System.out.println("Casting Fireball!");
         }
     }
 
     @Override
     public void use(Player player) {
         attack(player);
+        System.out.println("Attacking..");
     }
 
     @Override

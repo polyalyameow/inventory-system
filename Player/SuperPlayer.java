@@ -51,6 +51,11 @@ public class SuperPlayer extends Player{
         inventory.addItem(new MagicSword("Extremely Cool Magic Sword", 5, 80, 100));
     }
 
+    @Override
+    public Inventory getInventory() {
+        return this.inventory;
+    }
+
     public void superPlayerGame(Player player) {
         Scanner scanner = new Scanner(System.in);
         int choice;
@@ -73,7 +78,7 @@ public class SuperPlayer extends Player{
                         inventory.displayInventory(player);
                         break;
                     case 2:
-                        inventory.shop(player);
+                        inventory.toShop(player);
                         break;
                     case 3:
                         inventory.customisableItemConstructor();

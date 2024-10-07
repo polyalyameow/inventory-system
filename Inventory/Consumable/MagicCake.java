@@ -65,5 +65,11 @@ public class MagicCake extends Consumable {
         }
     }
     
-    
+    public int getRestoreHealthAmount() {
+        return this.restoreHealthAmount;
+    }
+
+    public int getRestoreManaAmount() {
+        return this.restoreManaAmount;
+    }
 }

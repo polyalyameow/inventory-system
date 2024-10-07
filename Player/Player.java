@@ -1,15 +1,20 @@
 package Player;
 
+import Inventory.Inventory;
+
 public class Player {
     protected String name;
     protected int health; 
     protected int mana;
     protected int money;
     protected int strength;
+    protected Inventory inventory;
 
     public Player(String name) {
         this.name = name;
+        this.inventory = new Inventory();
         checkPlayer(name);
+
     }
 
     private void checkPlayer(String name) {
@@ -73,5 +78,9 @@ public class Player {
 
     public void setStrength(int strength){
         this.strength = strength;
+    }
+
+    public Inventory getInventory() {
+        return this.inventory;
     }
 }

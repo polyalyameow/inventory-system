@@ -56,6 +56,10 @@ public class HealthPotion extends Consumable {
                 System.out.println("Invalid choice. Returning to inventory...");
         }
     }
+
+    public int getRestoreAmount() {
+        return this.restoreAmount;
+    }
     
     
 }

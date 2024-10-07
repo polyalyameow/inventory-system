@@ -8,6 +8,7 @@ import java.util.Scanner;
 import Inventory.Armour.OgreArmour;
 import Inventory.Consumable.HealthPotion;
 import Inventory.Consumable.MagicCake;
+import Inventory.Shop.Shop;
 import Inventory.Weapon.MagicSword;
 import Player.Player;
 
@@ -41,6 +42,8 @@ public class Inventory {
         System.out.println("HERE'S YOUR INVENTORY");
         System.out.println();
         System.out.println("0. Back to menu");
+        System.out.println();
+        List<Item> items = getItems();
         int i = 1;
         for(Item item : items) {
             System.out.println(i + ". " + item);
@@ -76,7 +79,7 @@ public class Inventory {
         }
     }
 
-    public void shop(Player player){
+    public void toShop(Player player){
 
         Scanner scanner = new Scanner(System.in);
         int choice;
@@ -88,7 +91,7 @@ public class Inventory {
             System.out.println();
             System.out.println("1. BUY");
             System.out.println("2. SELL");
-            System.out.println("3. GO BACK TO MENU");
+            System.out.println("0. GO BACK TO MENU");
 
             try {
                 choice = scanner.nextInt();
@@ -96,7 +99,7 @@ public class Inventory {
 
                 switch (choice) {
                     case 1:
-                        buyItem();
+                        Shop.displayShop(player);
                         break;
                     case 2:
                         sellItem(player);
@@ -127,9 +130,13 @@ public class Inventory {
     // add item to players inventory to default items
     // reduce amount of money
 
-    public void buyItem() {
-        System.out.println("Buying...");
-    }
+    // public static void buyItem(Player player) {
+    //     System.out.println();
+    //     System.out.println("CHOOSE ITEMS TO BUY");
+
+    //     Scanner scanner = new Scanner(System.in);
+    //     int choice = scanner.nextInt();
+    // }
 
     // Player can sell item that player doesnt need
     // Player will get money 
@@ -183,6 +190,14 @@ public class Inventory {
     // Advanced method for superPlayer -- create customisable item
     public void customisableItemConstructor(){
         System.out.println("Workshop will be here...");
+    }
+
+    public int calculateTotalWeight() {
+        int totalWeight = 0;
+        for (Item item : items) {
+            totalWeight += item.getWeight();
+        }
+        return totalWeight;
     }
 
 }
