@@ -27,16 +27,16 @@ public class OrdinaryPlayer extends Player {
         System.out.println("Hello, player " + name);
         System.out.println("You have " + money + " pieces of gold");
         System.out.println("Let the game begin!");
-        ordinaryPlayerGame();
+        ordinaryPlayerGame(this);
     }
 
     protected void addDefaultItems() {
-        inventory.addItem(new HealthPotion("Meh Potion", 8, 5, "Healing, but meh", 5, 20));
-        inventory.addItem(new OgreArmour("Meh Armour", 40, 10, "Heavy and not very useful"));
-        inventory.addItem(new MagicSword("Just A Sword", 15, 8, 20));
+        inventory.addItem(new HealthPotion("Meh Health Potion", 8, 5, "Healing, but meh", 5, 20));
+        inventory.addItem(new OgreArmour("Meh Ogre Armour", 40, 10, "Heavy and not very useful"));
+        inventory.addItem(new MagicSword("Meh Magic Sword", 15, 8, 20));
     }
 
-    public void ordinaryPlayerGame() {
+    public void ordinaryPlayerGame(Player player) {
         Scanner scanner = new Scanner(System.in);
         int choice;
 
@@ -54,7 +54,7 @@ public class OrdinaryPlayer extends Player {
 
                 switch (choice) {
                     case 1:
-                        inventory.displayInventory();
+                        inventory.displayInventory(player);
                         break;
                     case 2:
                         inventory.shop();

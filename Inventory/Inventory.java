@@ -5,6 +5,12 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+import Inventory.Armour.OgreArmour;
+import Inventory.Consumable.HealthPotion;
+import Inventory.Consumable.MagicCake;
+import Inventory.Weapon.MagicSword;
+import Player.Player;
+
 // personal inventory for each player
 // consists of list of items 
 
@@ -20,6 +26,9 @@ public class Inventory {
     public Inventory() {
         this.items = new ArrayList<>();
     }
+    public List<Item> getItems() {
+        return items;
+    }
 
     // add default items when player gets created
     public void addItem(Item item) {
@@ -27,15 +36,37 @@ public class Inventory {
     }
 
     // Show all items in inventory
-    // Loop through array to show items
-    // add "Back"-option to go back to meny
-
-    public void displayInventory(){
+    public void displayInventory(Player player){
         System.out.println();
         System.out.println("HERE'S YOUR INVENTORY");
         System.out.println();
+        int i = 1;
         for(Item item : items) {
-            System.out.println(item);
+            System.out.println(i + ". " + item);
+            i ++;
+        }
+
+        System.out.println();
+        System.out.println("CHOOSE WISELY AND ENTER AN ITEM NUMBER");
+
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+
+        if (choice > 0 && choice <= getItems().size()) {
+            Item selectedItem = getItems().get(choice - 1);
+            if (selectedItem instanceof MagicSword) {
+                // displayMagicSwordMenu((MagicSword) selectedItem);
+            } else if (selectedItem instanceof MagicCake) {
+                // displayMagicCakeMenu((MagicCake) selectedItem);
+            } else if (selectedItem instanceof HealthPotion) {
+                // displayHealthPotionMenu((HealthPotion) selectedItem);
+            } else if (selectedItem instanceof OgreArmour) {
+                ((OgreArmour) selectedItem).displayOgreArmourMenu(player);
+            } else {
+                System.out.println("Selected item is not interactable.");
+            }
+        } else {
+            System.out.println("Exiting inventory ...");
         }
     }
 

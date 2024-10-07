@@ -35,7 +35,7 @@ public class SuperPlayer extends Player{
         System.out.println("YOU HAVE " + money + " PIECES OF GOLD");
         System.out.println();
         System.out.println("LET THE GAME BEGIN!");
-        superPlayerGame();
+        superPlayerGame(this);
     }
 
     // GREETING FUNC FOR TESTING
@@ -46,12 +46,12 @@ public class SuperPlayer extends Player{
 
     protected void addDefaultItems() {
         // add different classes to items-array
-        inventory.addItem(new HealthPotion("Super Duper Potion", 1, 50, "Healing", 35, 100));
-        inventory.addItem(new OgreArmour("Superior Armour", 10, 150, "Heavy"));
-        inventory.addItem(new MagicSword("Extremely Cool Sword", 5, 80, 100));
+        inventory.addItem(new HealthPotion("Super Duper Health Potion", 1, 50, "Healing", 35, 100));
+        inventory.addItem(new OgreArmour("Superior Ogre Armour", 10, 150, "Heavy"));
+        inventory.addItem(new MagicSword("Extremely Cool Magic Sword", 5, 80, 100));
     }
 
-    public void superPlayerGame() {
+    public void superPlayerGame(Player player) {
         Scanner scanner = new Scanner(System.in);
         int choice;
 
@@ -70,7 +70,7 @@ public class SuperPlayer extends Player{
 
                 switch (choice) {
                     case 1:
-                        inventory.displayInventory();
+                        inventory.displayInventory(player);
                         break;
                     case 2:
                         inventory.shop();
