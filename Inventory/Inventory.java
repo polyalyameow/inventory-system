@@ -168,7 +168,7 @@ public class Inventory {
 
 
     // Advanced method for superPlayer -- create customisable item
-    public void customisableItemConstructor(Player player){
+    public void customisableItemConstructor(){
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("WELCOME TO THE WORKSHOP");

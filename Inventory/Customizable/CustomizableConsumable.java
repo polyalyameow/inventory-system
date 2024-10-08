@@ -18,7 +18,7 @@ public class CustomizableConsumable extends Consumable {
     @Override
     public void use(Player player) {
         System.out.println("You have used " + getName() + ". Effect: " + getEffect() + 
-                           " for " + getDuration() + " seconds. Your health potion consists of " + firstElement + secondElement + thirdElement);
+                           " for " + getDuration() + " seconds. Your health potion consists of " + firstElement + ", " + secondElement + ", " + thirdElement);
     }
 
         

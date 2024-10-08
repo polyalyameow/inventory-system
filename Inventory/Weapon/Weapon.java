@@ -5,7 +5,7 @@ import Player.Player;
 
 public abstract class Weapon extends Item {
 
-    int damage;
+    private int damage;
 
     public Weapon(String name, int weight, int goldValue, int damage) {
         super(name, weight, goldValue);

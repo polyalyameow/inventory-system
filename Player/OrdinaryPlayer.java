@@ -23,7 +23,7 @@ public class OrdinaryPlayer extends Player {
 
     public void greetingsOrdinary() {
         System.out.println("Hello, player " + name);
-        System.out.println("You have " + money + " pieces of gold");
+        System.out.println("You have " + money + " coins");
         System.out.println("Let the game begin!");
         ordinaryPlayerGame(this);
     }

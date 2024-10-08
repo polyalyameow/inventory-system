@@ -30,7 +30,7 @@ public class SuperPlayer extends Player{
 
         System.out.println("HELLO, SUPERPLAYER " + realName.toUpperCase() + "!");
         System.out.println();
-        System.out.println("YOU HAVE " + money + " PIECES OF GOLD");
+        System.out.println("YOU HAVE " + money + " COINS");
         System.out.println();
         System.out.println("LET THE GAME BEGIN!");
         superPlayerGame(this);
@@ -79,7 +79,7 @@ public class SuperPlayer extends Player{
                         inventory.toShop(player);
                         break;
                     case 3:
-                        inventory.customisableItemConstructor(player);
+                        inventory.customisableItemConstructor();
                         break;
                     case 4:
                         System.out.println("Goodbye!");
